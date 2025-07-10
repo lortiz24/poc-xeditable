@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monolito Híbrido</title>
+  <!-- Estilos opcionales -->
+  <style>
+    #vue-root, #react-root {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vista del Servidor (HTML clásico)</h1>
+
+  <p>Aquí abajo montamos Vue:</p>
+  <div id="vue-root"></div>
+
+  <p>Aquí abajo montamos React:</p>
+  <div id="react-root"></div>
+
+  <!-- Vue desde CDN -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/vue-app.js"></script>
+
+  <!-- React desde CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="/react-app.js"></script>
+</body>
+</html>
