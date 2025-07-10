@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Monolito Híbrido</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <!-- Estilos opcionales -->
   <style>
     #vue-root, #react-root {
@@ -20,11 +22,18 @@
   <p>Aquí abajo montamos React:</p>
   <div id="react-root"></div>
 
-  <!-- Vue desde CDN -->
-  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Luego Bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <!-- Después x-editable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+  
+  <!-- Finalmente los frameworks y nuestras apps -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="/vue-app.js"></script>
 
-  <!-- React desde CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="/react-app.js"></script>
