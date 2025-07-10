@@ -5,7 +5,7 @@ createApp({
     return {
       nombre: "Luis",
       edad: 30,
-      fechaNacimiento: "1993-03-20",
+      fechaNacimiento: "1998-05-15",
       pk: 1,
     };
   },
@@ -20,10 +20,8 @@ createApp({
         try {
           $(".vue-nombre, .vue-edad, .vue-fecha").editable("destroy");
         } catch (e) {
-          // Si no estaba inicializado, ignoramos el error
         }
 
-        // Inicializar x-editable para nombre (inline)
         $(".vue-nombre").editable({
           type: "text",
           title: "Editar nombre",
@@ -37,7 +35,6 @@ createApp({
           },
         });
 
-        // Inicializar x-editable para edad (inline, tipo number)
         $(".vue-edad").editable({
           type: "number",
           title: "Editar edad",
@@ -51,7 +48,6 @@ createApp({
           },
         });
 
-        // Inicializar x-editable para fecha (modal)
         $(".vue-fecha").editable({
           type: "date",
           title: "Editar fecha de nacimiento",
