@@ -1,1 +1,40 @@
-%a.x-editable{href: "#", data: {type: "checkbox"}} Activo
+-# MODULE: Gestión de Usuarios
+-# Formulario de Gestión de Roles - Sintaxis HAML
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title Gestión de Roles de Usuario
+  .panel-body
+    .form-horizontal
+      .form-group
+        %label.col-sm-3.control-label Nombre del Rol:
+        .col-sm-9
+          %a.x-editable{href: "#", "data-pk": "1", "data-type": "text", "data-title": "Editar nombre del rol"} Administrador
+      
+      .form-group
+        %label.col-sm-3.control-label Estado:
+        .col-sm-9
+          %a.x-editable{href: "#", "data-pk": "1", "data-type": "select", "data-source": "[{value: 'activo', text: 'Activo'}, {value: 'inactivo', text: 'Inactivo'}]", "data-title": "Cambiar estado"} Activo
+      
+      .form-group
+        %label.col-sm-3.control-label Activo:
+        .col-sm-9
+          %a.x-editable{href: "#", "data-pk": "1", "data-type": "checklist", "data-value": "1", "data-source": "[{value: 1, text: 'Habilitado'}]", "data-title": "Activar/Desactivar"} ✓
+      
+      .form-group
+        %label.col-sm-3.control-label Nivel de Acceso:
+        .col-sm-9
+          %a.x-editable{href: "#", "data-pk": "1", "data-type": "select", "data-source": "[{value: '1', text: 'Básico'}, {value: '2', text: 'Medio'}, {value: '3', text: 'Avanzado'}, {value: '4', text: 'Total'}]", "data-title": "Seleccionar nivel"} Total
+      
+      .form-group
+        %label.col-sm-3.control-label Descripción:
+        .col-sm-9
+          %a.x-editable{href: "#", "data-pk": "1", "data-type": "textarea", "data-rows": "3", "data-title": "Editar descripción"} Rol con acceso completo al sistema, puede gestionar usuarios y configuraciones.
+
+-# Inicialización JavaScript para HAML
+:javascript
+  $(document).ready(function() {
+    $('.x-editable').editable({
+      mode: 'inline',
+      emptytext: 'Vacío'
+    });
+  });

@@ -1,3 +1,4 @@
+/* MODULE: Dashboard Principal */
 let appData = {
   nombre: "Juan",
   edad: 25,

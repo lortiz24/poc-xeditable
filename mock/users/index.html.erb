@@ -1,1 +1,85 @@
-<a href="#" class="x-editable" data-type="text">Nombre desde .erb</a>
+<!-- MODULE: Gestión de Usuarios -->
+<!-- Lista de Usuarios - Sintaxis ERB -->
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Lista de Usuarios</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Edad</th>
+          <th>Estado</th>
+          <th>Último Login</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users = [
+          {id: 1, name: "Juan Pérez", email: "juan@email.com", age: 28, status: "active", last_login: "2024-01-15"},
+          {id: 2, name: "María García", email: "maria@email.com", age: 32, status: "inactive", last_login: "2024-01-10"},
+          {id: 3, name: "Carlos López", email: "carlos@email.com", age: 25, status: "active", last_login: "2024-01-16"}
+        ] %>
+        
+        <% users.each do |user| %>
+        <tr>
+          <td><%= user[:id] %></td>
+          <td>
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="text" data-title="Editar nombre">
+              <%= user[:name] %>
+            </a>
+          </td>
+          <td>
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="email" data-title="Editar email">
+              <%= user[:email] %>
+            </a>
+          </td>
+          <td>
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="number" data-title="Editar edad" data-min="18" data-max="100">
+              <%= user[:age] %>
+            </a>
+          </td>
+          <td>
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="select" 
+               data-source="[{value: 'active', text: 'Activo'}, {value: 'inactive', text: 'Inactivo'}, {value: 'suspended', text: 'Suspendido'}]" 
+               data-title="Cambiar estado">
+              <%= user[:status] == 'active' ? 'Activo' : (user[:status] == 'inactive' ? 'Inactivo' : 'Suspendido') %>
+            </a>
+          </td>
+          <td>
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="date" data-title="Último login" data-format="yyyy-mm-dd">
+              <%= user[:last_login] %>
+            </a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <!-- Ejemplo de edición modal -->
+    <div class="well">
+      <h4>Configuración Global</h4>
+      <p>
+        <strong>Mensaje del Sistema:</strong>
+        <a href="#" class="x-editable" data-type="textarea" data-mode="popup" data-title="Mensaje del sistema" data-rows="4">
+          Bienvenido al sistema de gestión de usuarios. Mantén tus datos actualizados.
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Script de inicialización ERB -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.x-editable').editable({
+      mode: 'inline',
+      emptytext: 'Click para editar',
+      success: function(response, newValue) {
+        console.log('Usuario actualizado:', this.getAttribute('data-pk'), newValue);
+      }
+    });
+  });
+</script>

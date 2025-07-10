@@ -1,3 +1,4 @@
+/* MODULE: Gestión de Usuarios */
 const { createApp, nextTick } = Vue;
 
 createApp({
