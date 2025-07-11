@@ -26,7 +26,6 @@ createApp({
         $(".vue-nombre").editable({
           type: "text",
           title: "Editar nombre",
-          mode: "inline",
           value: this.nombre,
           success: (response, newValue) => {
             this.nombre = newValue;
@@ -39,7 +38,6 @@ createApp({
         $(".vue-edad").editable({
           type: "number",
           title: "Editar edad",
-          mode: "inline",
           value: this.edad,
           success: (response, newValue) => {
             this.edad = parseInt(newValue);
@@ -52,7 +50,6 @@ createApp({
         $(".vue-fecha").editable({
           type: "date",
           title: "Editar fecha de nacimiento",
-          mode: "popup",
           value: this.fechaNacimiento,
           format: "yyyy-mm-dd",
           placement: "bottom",
@@ -79,13 +76,13 @@ createApp({
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <label>Nombre: </label> <a href="#" class="vue-nombre" data-pk="1">{{ nombre }}</a>
+          <label>Nombre: </label> <a href="#" class="vue-nombre" data-pk="1" data-type="text" data-mode="inline">{{ nombre }}</a>
         </div>
         <div class="form-group">
-          <label>Edad: </label> <a href="#" class="vue-edad" data-pk="1">{{ edad }}</a> años
+          <label>Edad: </label> <a href="#" class="vue-edad" data-pk="1" data-type="number" data-mode="inline">{{ edad }}</a> años
         </div>
         <div class="form-group">
-          <label>Fecha de nacimiento: </label> <a href="#" class="vue-fecha" data-pk="1">{{ fechaNacimiento }}</a>
+          <label>Fecha de nacimiento: </label> <a href="#" class="vue-fecha" data-pk="1" data-type="date" data-mode="popup">{{ fechaNacimiento }}</a>
         </div>
       </div>
     </div>

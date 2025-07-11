@@ -1,5 +1,4 @@
 <!-- MODULE: Gestión de Usuarios -->
-<!-- Lista de Usuarios - Sintaxis ERB -->
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Lista de Usuarios</h3>
@@ -27,29 +26,29 @@
         <tr>
           <td><%= user[:id] %></td>
           <td>
-            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="text" data-title="Editar nombre">
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="text" data-title="Editar nombre" data-mode="inline">
               <%= user[:name] %>
             </a>
           </td>
           <td>
-            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="email" data-title="Editar email">
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="email" data-title="Editar email" data-mode="inline">
               <%= user[:email] %>
             </a>
           </td>
           <td>
-            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="number" data-title="Editar edad" data-min="18" data-max="100">
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="number" data-title="Editar edad" data-min="18" data-max="100" data-mode="inline">
               <%= user[:age] %>
             </a>
           </td>
           <td>
             <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="select" 
                data-source="[{value: 'active', text: 'Activo'}, {value: 'inactive', text: 'Inactivo'}, {value: 'suspended', text: 'Suspendido'}]" 
-               data-title="Cambiar estado">
+               data-title="Cambiar estado" data-mode="inline">
               <%= user[:status] == 'active' ? 'Activo' : (user[:status] == 'inactive' ? 'Inactivo' : 'Suspendido') %>
             </a>
           </td>
           <td>
-            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="date" data-title="Último login" data-format="yyyy-mm-dd">
+            <a href="#" class="x-editable" data-pk="<%= user[:id] %>" data-type="date" data-title="Último login" data-format="yyyy-mm-dd" data-mode="inline">
               <%= user[:last_login] %>
             </a>
           </td>
@@ -75,7 +74,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('.x-editable').editable({
-      mode: 'inline',
       emptytext: 'Click para editar',
       success: function(response, newValue) {
         console.log('Usuario actualizado:', this.getAttribute('data-pk'), newValue);
