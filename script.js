@@ -33,17 +33,14 @@ const pattern = "**/*.{erb,haml,vue,js}";
         const modeMatch = match.match(/data-mode="([^"]+)"/);
         const type = typeMatch ? typeMatch[1] : "Desconocido";
         const mode = modeMatch ? modeMatch[1] : "Desconocido";
-        const archivoNombre = file.replace(/^.*[\\\/]/, "");
         const rutaLimpia = file.replace(/\\/g, "/");
 
-        // Clave única por archivo + tipo + modo
-        const key = `${file}|${type}|${mode}`;
+        const key = `${file}|${type}`;
 
         if (resultsMap[key]) {
           resultsMap[key].frecuencia += 1;
         } else {
           resultsMap[key] = {
-            archivo: archivoNombre,
             ruta: rutaLimpia,
             modulo: moduleName,
             tipoDeCampo: type,
